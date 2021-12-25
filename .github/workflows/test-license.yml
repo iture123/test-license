@@ -35,6 +35,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           cd  $GITHUB_WORKSPACE
-          docker run -it --rm -v $(pwd):/github/workspace ghcr.io/apache/skywalking-eyes/license-eye header check
-          #license-eye -c test/testdata/.licenserc_for_test_check.yaml header check
+          go install github.com/apache/skywalking-eyes/cmd/license-eye@latest
+          license-eye -c test/testdata/.licenserc_for_test_check.yaml header check
           echo "this is test license"
