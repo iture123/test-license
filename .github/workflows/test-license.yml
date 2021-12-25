@@ -35,6 +35,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           cd  $GITHUB_WORKSPACE
+          export GO111MODULE=on
+          source ~/.zshrc
           go install github.com/apache/skywalking-eyes/cmd/license-eye@latest
           license-eye -c test/testdata/.licenserc_for_test_check.yaml header check
           echo "this is test license"
